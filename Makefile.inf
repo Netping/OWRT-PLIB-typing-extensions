@@ -1,21 +1,24 @@
 SECTION="NetPing modules"
 CATEGORY="Base"
-TITLE="EPIC OWRT-PLIB-typing-extensions"
+TITLE="OWRT-PLIB-typing-extensions"
 
 PKG_NAME="OWRT-PLIB-typing-extensions"
-PKG_VERSION=4.0.1
+PKG_VERSION=4.1.1-1
 PKG_RELEASE=1
 PKG_DEPENDS=
 
 MODULE_NAME=owrt_plib_typing-extensions
-MODULE_FILES=typing_extensions.py typing_extensions-4.0.1.dist-info
+MODULE_FILES=typing_extensions.py typing_extensions-4.1.1.dist-info
 MODULE_FILES_DIR?=/usr/lib/python3.7/site-packages/
 
 INSTALL_DIR=
 
-all: configure build install
+all: build preinstall install configure
 
 ipk: build install
+
+preinstall:
+	@echo "Nothing to do"
 
 configure:
 	@echo "Nothing to do"
