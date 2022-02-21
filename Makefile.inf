@@ -24,14 +24,14 @@ build:
 	@echo "Nothing to do"
 
 install:
-ifneq ($(CURRENT_VERSION),$(PKG_VERSION))
+	for f in $(MODULE_FILES); do rm -rf $(INSTALL_DIR)$(MODULE_FILES_DIR)$${f}; done
+
 ifeq ($(origin INSTALL_DIR),command line)
 	mkdir -p $(INSTALL_DIR)${MODULE_FILES_DIR}
 else
 	mkdir -p $(INSTALL_DIR)${MODULE_FILES_DIR}
 endif
 	for f in $(MODULE_FILES); do cp -r $${f} $(INSTALL_DIR)$(MODULE_FILES_DIR); done
-endif
 
 clean:
 ifeq ($(origin INSTALL_DIR),command line)
